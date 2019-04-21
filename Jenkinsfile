@@ -21,12 +21,12 @@ parameters {
             }
         }
 
-        stage('Infrastructure State') {
-            steps {
-                sh 'chmod +x infrastate.sh'
-	        sh './infrastate.sh'
-            }
-        }
+//        stage('Infrastructure State') {
+//            steps {
+//                sh 'chmod +x infrastate.sh'
+//	        sh './infrastate.sh'
+//            }
+//        }
 
         stage('Change User Data') {
             steps {
