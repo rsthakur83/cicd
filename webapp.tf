@@ -1,7 +1,10 @@
 # Configure the AWS Provider
 # Configure the AWS Provider
 provider "aws" {
+    access_key = ${AN_ACCESS_KEY}
+    secret_key = ${SECRET_KEY}
     region = "${var.aws_region}"
+
 }
 
 

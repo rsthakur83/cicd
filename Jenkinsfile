@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    
+ environment { 
+ AN_ACCESS_KEY = credentials('accesskey') 
+ SECRET_KEY = credentials('secretkey')
+            }
+
 parameters {
     choice(
         name: 'app_version',
