@@ -14,7 +14,16 @@ parameters {
                 echo 'Downloading Source Code'
             }
         }
-        stage('Clone') {
+
+    stages {
+        stage('Infrastructure State') {
+            steps {
+                sh 'chmod +x infrastate.sh'
+	        sh './infrastate.sh'
+            }
+        }
+
+        stage('Change User Data') {
             steps {
 			
               sh  'echo "git clone --depth 1 --branch ${app_version} git://github.com/rsthakur83/release.git" >> userdata.sh'
