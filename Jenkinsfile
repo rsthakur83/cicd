@@ -15,7 +15,6 @@ parameters {
             }
         }
 
-    stages {
         stage('Infrastructure State') {
             steps {
                 sh 'chmod +x infrastate.sh'
