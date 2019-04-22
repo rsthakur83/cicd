@@ -1,7 +1,5 @@
 provider "aws" {
     region = "${var.aws_region}"
-    access_key = "${var.access}"
-    secret_key = "${var.secret}"
 }
 
 
@@ -152,7 +150,7 @@ resource "aws_launch_configuration" "machine-factory-v1" {
     security_groups = ["${aws_security_group.web_server.id}","${aws_security_group.allow_ssh.id}"]
     instance_type = "t2.micro"
     key_name = "myappkeypair"
-    user_data       = "${file("userdata.sh")}"
+    user_data       = "${file("userdata-asg.sh")}"
     lifecycle              { create_before_destroy = true }
 
 }
