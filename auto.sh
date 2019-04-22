@@ -1,9 +1,14 @@
 #!/bin/bash
 
 sg1=`aws ec2 describe-security-groups --filters Name=tag:Name,Values=sg1 --query 'SecurityGroups[].GroupId' --region us-east-1 --output text`
+
+echo $sg1
 sg2=`aws ec2 describe-security-groups --filters Name=tag:Name,Values=sg2 --query 'SecurityGroups[].GroupId' --region us-east-1 --output text`
+
+echo $sg2
 vpcid=`aws ec2 describe-vpcs --filters Name=tag:Name,Values=myappvpc --query 'Vpcs[].[VpcId]' --region us-east-1 --output text`
 
+echo $vpcid
 sed -i -e "s/sg1/$sg1/g" fis/sg.tf
 sed -i -e "s/sg2/$sg2/g" fis/sg.tf
 
